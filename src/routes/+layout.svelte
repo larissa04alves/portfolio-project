@@ -1,6 +1,6 @@
 <script lang="ts">
 	import './layout.css';
-	import favicon from '$lib/assets/favicon.svg';
+	import Navbar from '$lib/components/Navbar.svelte';
 
 	let { children } = $props();
 </script>
@@ -15,4 +15,10 @@
 	<title>Larissa Alves | Fullstack Dev</title>
 </svelte:head>
 
-{@render children()}
+<div class="h-full w-full">
+	<Navbar />
+
+	<main>
+		{@render children()}
+	</main>
+</div>
