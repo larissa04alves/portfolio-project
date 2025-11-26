@@ -1,4 +1,8 @@
 <script lang="ts">
+	import type { Snippet } from 'svelte';
+
+	let { children }: { children: Snippet } = $props();
+
 	let mouseX = $state(0);
 	let mouseY = $state(0);
 
@@ -26,5 +30,9 @@
 		<div
 			class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-size-[50px_50px]"
 		></div>
+	</div>
+
+	<div class="relative z-10">
+		{@render children()}
 	</div>
 </div>
