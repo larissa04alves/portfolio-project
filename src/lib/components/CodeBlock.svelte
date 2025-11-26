@@ -15,7 +15,7 @@
 	});
 </script>
 
-<div class="overflow-hidden rounded-xl border border-border bg-card p-4 font-mono text-sm">
+<div class=" overflow-hidden rounded-xl border border-border bg-card p-4 font-mono text-sm">
 	<div class="mb-3 flex items-center gap-2 border-b border-border pb-3">
 		<div class="h-3 w-3 rounded-full bg-red-500/80"></div>
 		<div class="h-3 w-3 rounded-full bg-yellow-500/80"></div>
