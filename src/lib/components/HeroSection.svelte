@@ -37,8 +37,11 @@
 					</div>
 
 					<p class="w-[90%]">
-						Desenvolvo aplicações modernas com foco em performance e usabilidade, oferecendo
-						experiências mais intuitivas e funcionais.
+						Desenvolvo aplicações modernas com foco em <span class="font-semibold text-primary"
+							>performance</span
+						>
+						e <span class="font-semibold text-primary">usabilidade</span>, oferecendo experiências
+						mais intuitivas e funcionais.
 					</p>
 
 					<!-- Area botoes -->
