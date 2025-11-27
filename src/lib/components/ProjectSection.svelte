@@ -71,9 +71,11 @@
 			<ProjectCard {...project} />
 		{/each}
 	</div>
+
 	<Button
 		variant="ghost"
-		class="rounded-lg border border-border px-6 py-6 font-medium text-foreground
+		href="https://github.com/larissa04alves"
+		class=" rounded-lg border border-border px-6 py-6 font-medium text-foreground
                  transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary"
 		><Github /> Ver mais no GitHub</Button
 	>

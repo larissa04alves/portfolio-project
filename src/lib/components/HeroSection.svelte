@@ -65,17 +65,29 @@
 					<!-- Area redes sociais -->
 					<div class="flex items-center">
 						<div>
-							<Button variant="ghost" class="cursor-pointer hover:bg-transparent"
+							<Button
+								href="https://github.com/larissa04alves"
+								target="_blank"
+								variant="ghost"
+								class="cursor-pointer hover:bg-transparent"
 								><img src={GithubLogo} alt="GitHub Logo" loading="eager" /></Button
 							>
 						</div>
 						<div>
-							<Button variant="ghost" class="cursor-pointer hover:bg-transparent"
+							<Button
+								href="https://www.linkedin.com/in/larissa-alvess/"
+								target="_blank"
+								variant="ghost"
+								class="cursor-pointer hover:bg-transparent"
 								><img src={LinkedinLogo} alt="LinkedIn Logo" loading="eager" /></Button
 							>
 						</div>
 						<div>
-							<Button variant="ghost" class="cursor-pointer hover:bg-transparent"
+							<Button
+								href="https://www.instagram.com/_alvesslari/ "
+								target="_blank"
+								variant="ghost"
+								class="cursor-pointer hover:bg-transparent"
 								><img src={InstagramLogo} alt="Instagram Logo" loading="eager" /></Button
 							>
 						</div>

@@ -5,7 +5,6 @@
 <a
 	href={link}
 	target="_blank"
-	rel="noopener nore ferrer"
 	class="block overflow-hidden rounded-xl border border-border bg-card
          transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
 >
@@ -13,7 +12,7 @@
 		<img
 			src={image || '/placeholder.svg'}
 			alt={title}
-			class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
+			class="h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-110"
 		/>
 		<div
 			class="absolute inset-0 bg-linear-to-b from-card via-transparent to-transparent opacity-60"
@@ -43,7 +42,9 @@
 		</p>
 		<div class="flex flex-wrap gap-2">
 			{#each tags as tag}
-				<span class="rounded-md bg-secondary px-2 py-1 font-mono text-xs text-muted-foreground">
+				<span
+					class="rounded-md border border-chart-4 bg-secondary px-2 py-1 font-mono text-xs text-muted-foreground"
+				>
 					{tag}
 				</span>
 			{/each}

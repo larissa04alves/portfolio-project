@@ -20,7 +20,7 @@
 	];
 </script>
 
-<section class="relative flex w-full flex-col items-center justify-center gap-14 py-28">
+<section class="relative flex w-full flex-col items-center justify-center gap-14 py-20">
 	<!--Titulo -->
 	<div class="flex flex-col gap-4 text-center">
 		<p class="font-mono text-sm tracking-wider text-primary transition-all duration-700">
