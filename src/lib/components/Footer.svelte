@@ -11,7 +11,7 @@
 		<div class="flex flex-col items-center justify-between gap-3 md:flex-row md:gap-4">
 			<div class="flex items-center gap-2 text-center text-muted-foreground">
 				<span class="font-mono text-xs md:text-sm">
-					<span class="text-primary">&lt;</span>Feito com 💚 e muito código<span
+					<span class="text-primary">&lt;</span>Feito com 💜 e muito código<span
 						class="text-primary">/&gt;</span
 					>
 				</span>
