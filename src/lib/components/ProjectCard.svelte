@@ -5,7 +5,7 @@
 <a
 	href={link}
 	target="_blank"
-	class="block overflow-hidden rounded-xl border border-border bg-card
+	class="flex h-full flex-col overflow-hidden rounded-xl border border-border bg-card
          transition-all duration-500 hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10"
 >
 	<div class="relative h-48 overflow-hidden bg-secondary">
@@ -31,13 +31,13 @@
 			Ver projeto
 		</div>
 	</div>
-	<div class="p-6">
+	<div class="flex flex-1 flex-col p-6">
 		<h3
 			class="mb-2 text-xl font-semibold text-foreground transition-colors duration-300 group-hover:text-primary"
 		>
 			{title}
 		</h3>
-		<p class="mb-4 text-sm leading-relaxed text-muted-foreground">
+		<p class="mb-4 flex-1 text-sm leading-relaxed text-muted-foreground">
 			{description}
 		</p>
 		<div class="flex flex-wrap gap-2">

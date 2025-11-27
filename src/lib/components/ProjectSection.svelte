@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import ProjectCard from './ProjectCard.svelte';
 	import TelaFluxoCaixa from '$lib/assets/images/tela-fluxo-caixa.png';
 	import TelaSilvaDiesel from '$lib/assets/images/tela-silva-diesel.png';
@@ -6,6 +7,9 @@
 	import TelaNLW from '$lib/assets/images/tela-nlw.jpeg';
 	import { Button } from './ui/button';
 	import { Github } from 'lucide-svelte';
+
+	let visible = $state(false);
+	let projectsRef = $state<HTMLElement | null>(null);
 
 	const projects = [
 		{
@@ -19,7 +23,7 @@
 		{
 			title: 'Site Silva Diesel',
 			description:
-				' site oficial da Silva Diesel, oferecendo uma interface moderna e responsiva, destacando os serviços especializados e reparos de veículos pesados.',
+				'Site oficial da Silva Diesel, oferecendo uma interface moderna e responsiva, destacando os serviços especializados e reparos de veículos pesados.',
 			tags: ['Svelte', 'Tailwind CSS', 'Vercel'],
 			image: TelaSilvaDiesel,
 			link: 'https://github.com/larissa04alves/Site-Silva-Diesel'
@@ -50,36 +54,71 @@
 			link: 'https://github.com/larissa04alves/web'
 		}
 	];
+
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					visible = true;
+					observer.disconnect(); // anima só uma vez
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		if (projectsRef) {
+			observer.observe(projectsRef);
+		}
+
+		return () => observer.disconnect();
+	});
 </script>
 
 <section
 	id="projects"
 	class="relative flex w-full flex-col items-center justify-center gap-10 py-30"
+	bind:this={projectsRef}
 >
-	<div class="flex w-full max-w-6xl flex-col items-center gap-2 pb-10 text-center">
-		<p class="font-mono text-sm tracking-wider text-primary transition-all duration-700">
-			// meus projetos
-		</p>
-		<h2 class="text-4xl font-bold text-foreground transition-all duration-700 md:text-5xl">
+	<div
+		class="flex w-full max-w-6xl flex-col items-center gap-2 pb-10 text-center transition-all duration-700"
+		style:opacity={visible ? 1 : 0}
+		style:transform={`translateY(${visible ? '0' : '20px'})`}
+	>
+		<p class="font-mono text-sm tracking-wider text-primary">// meus projetos</p>
+		<h2 class="text-4xl font-bold text-foreground md:text-5xl">
 			Trabalhos <span class="text-primary">recentes</span>
 		</h2>
-		<p class="mx-auto max-w-2xl text-muted-foreground transition-all duration-700">
-			Uma seleção dos meus projetos mais recentes, cada um com seus desafios únicos e soluções
-			criativas.
+		<p class="mx-auto max-w-2xl text-muted-foreground">
+			Projetos que desenvolvi aplicando diferentes tecnologias e abordagens, cada um explorando
+			soluções práticas para necessidades reais.
 		</p>
 	</div>
 
-	<div class="grid w-full max-w-6xl gap-8 md:grid-cols-2">
+	<div
+		class="grid w-full max-w-6xl gap-8 md:auto-rows-fr md:grid-cols-2"
+		style:opacity={visible ? 1 : 0}
+		style:transform={`translateY(${visible ? '0' : '20px'})`}
+		style:transition-delay={visible ? '0.05s' : '0s'}
+	>
 		{#each projects as project, index}
-			<ProjectCard {...project} />
+			<div
+				class="flex h-full transition-all duration-700"
+				style:opacity={visible ? 1 : 0}
+				style:transform={`translateY(${visible ? '0' : '20px'})`}
+				style:transition-delay={visible ? `${0.1 + index * 0.08}s` : '0s'}
+			>
+				<ProjectCard {...project} />
+			</div>
 		{/each}
 	</div>
 
 	<Button
 		variant="ghost"
 		href="https://github.com/larissa04alves"
-		class=" rounded-lg border border-border px-6 py-6 font-medium text-foreground
+		target="_blank"
+		class="rounded-lg border border-border px-6 py-6 font-medium text-foreground
                  transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary"
-		><Github /> Ver mais no GitHub</Button
 	>
+		<Github /> Ver mais no GitHub
+	</Button>
 </section>

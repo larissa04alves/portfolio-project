@@ -1,5 +1,40 @@
-<section id="about" class="relative flex w-full items-center justify-center py-32">
-	<div class="flex w-1/3 flex-col gap-6">
+<script lang="ts">
+	import { onMount } from 'svelte';
+
+	let visible = $state(false);
+	let aboutRef = $state<HTMLElement | null>(null);
+
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					visible = true;
+					observer.disconnect();
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		if (aboutRef) {
+			observer.observe(aboutRef);
+		}
+
+		return () => observer.disconnect();
+	});
+</script>
+
+<section
+	id="about"
+	class="relative flex w-full items-center justify-center py-32"
+	bind:this={aboutRef}
+>
+	<div
+		class="flex w-1/3 flex-col gap-6 transition-all duration-700"
+		style="
+      opacity: {visible ? 1 : 0};
+      transform: translateY({visible ? '0' : '20px'});
+    "
+	>
 		<div class="flex flex-col gap-4">
 			<h3 class="font-mono text-primary">// Sobre mim</h3>
 			<h1 class="flex flex-col font-mono text-4xl font-bold">
@@ -8,17 +43,18 @@
 		</div>
 		<div class="flex w-[85%] flex-col gap-6 text-muted-foreground">
 			<p>
-				Sou <span class="font-semibold text-primary">desenvolvedora full-stack</span> trabalhando
-				atualmente na AltoQi, empresa de tecnologia para construção civil. <br /> Atuo com
-				<span class="font-semibold text-primary">Node.js</span>,
-				<span class="font-semibold text-primary">React</span>
-				e <span class="font-semibold text-primary">Svelte</span>, integrando backend e frontend para
-				entregar aplicações funcionais e eficientes.
+				Sou <span class="font-semibold text-primary">desenvolvedora full-stack</span> trabalhando na
+				AltoQi, empresa de tecnologia para construção civil. <br /> Atuo com
+				<span class="font-semibold text-primary"> Node.js</span>,
+				<span class="font-semibold text-primary"> React</span>
+				e <span class="font-semibold text-primary"> Svelte</span>, integrando backend e frontend
+				para entregar aplicações funcionais e eficientes.
 			</p>
 			<p>
 				Atualmente curso <span class="font-semibold text-primary">Ciência da Computação</span> na
 				PUCPR e, também realizo freelancer de
-				<span class="font-semibold text-primary">desenvolvimento de aplicações web</span> completas.
+				<span class="font-semibold text-primary"> desenvolvimento de aplicações web</span>
+				completas.
 				<br />Já atuei com automação em Python, criação de dashboards em Power BI e backend com Java
 				e Spring Boot. Aprender e transformar ideias em código funcional continua sendo o que me
 				motiva.
@@ -26,7 +62,14 @@
 		</div>
 	</div>
 
-	<div class="relative w-1/3 animate-slide-left transition-all duration-700">
+	<div
+		class="relative w-1/3 transition-all duration-700"
+		style="
+      opacity: {visible ? 1 : 0};
+      transform: translateX({visible ? '0' : '30px'});
+      transition-delay: 0.15s;
+    "
+	>
 		<div class="relative overflow-hidden rounded-2xl border border-border bg-card p-8">
 			<!-- Terminal Header -->
 			<div class="mb-6 flex items-center gap-2">
@@ -42,11 +85,11 @@
 				<div class="space-y-1 pl-4 text-muted-foreground">
 					<p>→ Desenvolvimento Web Moderno</p>
 					<p>→ UI/UX Design</p>
-					<p>→ Performance & Otimização</p>
+					<p>→ Performance &amp; Otimização</p>
 					<p>→ Arquitetura de Software</p>
 					<p>→ DevTools e Fluxos de Trabalho</p>
 				</div>
-				<p class="pt-4"><span class="text-primary">$</span>quem_sou_eu</p>
+				<p class="pt-4"><span class="text-primary">$</span> quem_sou_eu</p>
 				<p class="pl-4 text-muted-foreground">
 					Uma desenvolvedora que gosta de criar,<br /> aprender e entregar soluções que fazem sentido.
 				</p>

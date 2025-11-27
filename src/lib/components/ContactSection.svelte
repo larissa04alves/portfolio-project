@@ -1,6 +1,10 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import { ArrowRight } from 'lucide-svelte';
 	import { Button } from './ui/button';
+
+	let visible = $state(false);
+	let contactRef: HTMLElement | null = $state(null);
 
 	const contactLinks = [
 		{
@@ -11,7 +15,7 @@
 		},
 		{
 			label: 'LinkedIn',
-			value: '/in/larissa-alvess',
+			value: '@larissa-alvess',
 			href: 'https://linkedin.com/in/larissa-alvess',
 			icon: '💼'
 		},
@@ -20,102 +24,100 @@
 			value: '@larissa04alves',
 			href: 'https://github.com/larissa04alves',
 			icon: '🐙'
+		},
+		{
+			label: 'WhatsApp',
+			value: 'Vamos conversar!',
+			href: 'https://wa.me/5555996913627?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20seu%20site!',
+			icon: '📱'
 		}
 	];
+
+	onMount(() => {
+		const observer = new IntersectionObserver(
+			(entries) => {
+				if (entries[0].isIntersecting) {
+					visible = true;
+					observer.disconnect(); // anima só uma vez
+				}
+			},
+			{ threshold: 0.2 }
+		);
+
+		if (contactRef) {
+			observer.observe(contactRef);
+		}
+
+		return () => observer.disconnect();
+	});
 </script>
 
-<section id="contact" class="flex w-full flex-col items-center justify-center py-20">
-	<!--Titulo -->
-	<div class="mb-12 flex flex-col gap-4 text-center">
-		<p class="font-mono text-sm tracking-wider text-primary transition-all duration-700">
-			// vamos conversar
-		</p>
-		<h2 class="text-4xl font-bold text-foreground transition-all duration-700 md:text-5xl">
+<section
+	id="contact"
+	class="flex w-full flex-col items-center justify-center py-20"
+	bind:this={contactRef}
+>
+	<!-- Título -->
+	<div
+		class="mb-12 flex flex-col gap-4 text-center transition-all duration-700"
+		style="opacity: {visible ? 1 : 0}; transform: translateY({visible ? '0' : '20px'})"
+	>
+		<p class="font-mono text-sm tracking-wider text-primary">// vamos conversar</p>
+		<h2 class="text-4xl font-bold text-foreground md:text-5xl">
 			Entre em <span class="text-primary">contato</span>
 		</h2>
-		<p class="mx-auto max-w-2xl text-muted-foreground transition-all duration-700">
+		<p class="mx-auto max-w-2xl text-muted-foreground">
 			Tem um projeto em mente ou quer trocar uma ideia? Sinta-se à vontade para me enviar uma
-			mensagem
+			mensagem.
 		</p>
 	</div>
 
-	<div class="flex w-full max-w-6xl items-stretch gap-8">
-		<!-- Formulario de contato -->
-		<form
-			class="flex w-[45%] flex-col gap-5 rounded-lg border border-border bg-card p-6 shadow-lg shadow-primary/10"
-		>
-			<div>
-				<label for="name" class="mb-2 block text-sm font-medium text-foreground">Nome</label>
-				<input
-					type="text"
-					id="name"
-					required
-					class="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground
-                       transition-all duration-300 placeholder:text-muted-foreground focus:border-primary focus:ring-1
-                       focus:ring-primary focus:outline-none"
-					placeholder="Seu nome"
-				/>
-			</div>
-			<div>
-				<label for="email" class="mb-2 block text-sm font-medium text-foreground">Email</label>
-				<input
-					type="email"
-					id="email"
-					required
-					class="w-full rounded-lg border border-border bg-secondary px-4 py-3 text-foreground
-                       transition-all duration-300 placeholder:text-muted-foreground focus:border-primary focus:ring-1
-                       focus:ring-primary focus:outline-none"
-					placeholder="seu@email.com"
-				/>
-			</div>
-			<div>
-				<label for="message" class="mb-2 block text-sm font-medium text-foreground">Mensagem</label>
-				<textarea
-					id="message"
-					required
-					rows="6"
-					class="w-full resize-none rounded-lg border border-border bg-secondary px-4 py-3 text-foreground
-                       transition-all duration-300 placeholder:text-muted-foreground focus:border-primary focus:ring-1
-                       focus:ring-primary focus:outline-none"
-					placeholder="Conte-me sobre seu projeto..."
-				></textarea>
-			</div>
-			<Button class="w-full">Enviar mensagem <ArrowRight /></Button>
-		</form>
-
-		<!-- Informacoes de contato -->
-		<div class="flex w-1/2 flex-col gap-8 transition-all duration-700">
-			<div class="flex flex-col gap-6">
-				{#each contactLinks as link}
-					<a
-						href={link.href}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="group flex items-center gap-4 rounded-xl border border-border bg-card
+	<div
+		class="flex w-1/2 flex-col gap-8 transition-all duration-700"
+		style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+			? '0'
+			: '20px'}); transition-delay: 0.1s"
+	>
+		<div class="grid grid-cols-2 gap-6">
+			{#each contactLinks as link, index}
+				<a
+					href={link.href}
+					target="_blank"
+					rel="noopener noreferrer"
+					class="group flex items-center gap-4 rounded-xl border border-border bg-card
                      p-4 transition-all duration-300 hover:border-primary/50"
-					>
-						<span class="text-2xl">{link.icon}</span>
-						<div>
-							<p class="text-sm text-muted-foreground">{link.label}</p>
-							<p class="text-foreground transition-colors group-hover:text-primary">{link.value}</p>
-						</div>
-						<ArrowRight
-							class="ml-auto h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary"
-						/>
-					</a>
-				{/each}
-			</div>
+					style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+						? '0'
+						: '20px'}); transition-delay: {visible ? `${0.15 + index * 0.07}s` : '0s'}"
+				>
+					<span class="text-2xl">{link.icon}</span>
+					<div>
+						<p class="text-sm text-muted-foreground">{link.label}</p>
+						<p class="text-foreground transition-colors group-hover:text-primary">
+							{link.value}
+						</p>
+					</div>
+					<ArrowRight
+						class="ml-auto h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary"
+					/>
+				</a>
+			{/each}
+		</div>
 
-			<!-- Availability Card -->
-			<div class="rounded-xl border border-primary/30 bg-card p-6">
-				<div class="mb-4 flex items-center gap-3">
-					<div class="h-3 w-3 animate-pulse rounded-full bg-green-500"></div>
-					<span class="font-medium text-foreground">Disponível para novos projetos</span>
-				</div>
-				<p class="text-sm text-muted-foreground">
-					Atualmente aceito projetos freelance. Vamos criar algo incrível juntos!
-				</p>
+		<!-- Availability Card -->
+		<div
+			class="rounded-xl border border-primary/30 bg-card p-6 transition-all duration-700"
+			style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+				? '0'
+				: '20px'}); transition-delay: 0.35s"
+		>
+			<div class="mb-4 flex items-center gap-3">
+				<div class="h-3 w-3 animate-pulse rounded-full bg-green-500"></div>
+				<span class="font-medium text-foreground">Disponível para novos projetos</span>
 			</div>
+			<p class="text-sm text-muted-foreground">
+				Atualmente aceito projetos freelance. Vamos conversar sobre o que você precisa.
+			</p>
 		</div>
 	</div>
 </section>

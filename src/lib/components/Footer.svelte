@@ -21,7 +21,7 @@
 				© {currentYear} Larissa Alves. Todos os direitos reservados.
 			</p>
 
-			<div class="flex items-center gap-4">
+			<div class="flex items-center">
 				<div>
 					<Button
 						href="https://github.com/larissa04alves"
