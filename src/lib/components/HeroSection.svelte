@@ -21,22 +21,24 @@
 
 <section class="flex flex-col">
 	<BackgroundElements>
-		<div class="flex w-full max-w-6xl flex-col items-center justify-center gap-16">
-			<div class="flex w-full items-center justify-center">
+		<div class="flex w-full max-w-6xl flex-col items-center justify-center gap-8 px-4 md:gap-16">
+			<div
+				class="flex w-full flex-col-reverse items-center justify-center gap-8 md:flex-row md:gap-0"
+			>
 				<!-- Area texto principal -->
-				<div class="flex w-1/2 flex-col gap-6">
+				<div class="flex w-full flex-col gap-4 md:w-1/2 md:gap-6">
 					<div class="flex flex-col gap-1">
-						<h3 class="font-mono">👋 Olá eu sou</h3>
-						<h1 class="flex flex-col text-6xl font-bold">
+						<h3 class="font-mono text-sm md:text-base">👋 Olá eu sou</h3>
+						<h1 class="flex flex-col text-4xl font-bold md:text-6xl">
 							Larissa <span class="text-primary">Alves</span>
 						</h1>
 						<div class="flex items-center gap-1 font-mono">
-							<h1 class="text-2xl font-semibold text-primary">></h1>
-							<p class="text-xl text-muted-foreground">Fullstack Developer</p>
+							<h1 class="text-xl font-semibold text-primary md:text-2xl">></h1>
+							<p class="text-base text-muted-foreground md:text-xl">Fullstack Developer</p>
 						</div>
 					</div>
 
-					<p class="w-[90%]">
+					<p class="w-full text-sm md:w-[90%] md:text-base">
 						Desenvolvo aplicações modernas com foco em <span class="font-semibold text-primary"
 							>performance</span
 						>
@@ -49,10 +51,10 @@
 						<Button
 							href="#projects"
 							variant="ghost"
-							class="flex items-center gap-2 rounded-lg bg-primary/90 px-6
-                 py-6 font-medium text-primary-foreground
-                 hover:bg-primary hover:shadow-xl hover:shadow-primary/30"
-							>Ver projetos <ArrowRight /></Button
+							class="flex items-center gap-2 rounded-lg bg-primary/90 px-4
+                 py-4 text-sm font-medium text-primary-foreground
+                 hover:bg-primary hover:shadow-xl hover:shadow-primary/30 md:px-6 md:py-6 md:text-base"
+							>Ver projetos <ArrowRight class="h-4 w-4 md:h-6 md:w-6" /></Button
 						>
 					</div>
 					<!-- Area redes sociais -->
@@ -87,10 +89,10 @@
 					</div>
 				</div>
 
-				<div class="relative w-1/2 animate-slide-left">
-					<div class="relative z-10 pb-6">
+				<div class="relative w-full animate-slide-left md:w-1/2">
+					<div class="relative z-10 pb-4 md:pb-6">
 						<!-- Profile image -->
-						<div class="relative mx-auto h-64 w-64 lg:h-72 lg:w-72">
+						<div class="relative mx-auto h-48 w-48 sm:h-56 sm:w-56 md:h-64 md:w-64 lg:h-72 lg:w-72">
 							<div
 								class="absolute inset-0 animate-pulse-glow rounded-full bg-primary/30 blur-2xl"
 							></div>
@@ -102,7 +104,7 @@
 
 							<!-- Floating Badge -->
 							<div
-								class="absolute -right-2 -bottom-2 animate-float rounded-full border border-primary bg-card px-4 py-2 font-mono text-sm text-primary"
+								class="absolute -right-1 -bottom-1 animate-float rounded-full border border-primary bg-card px-3 py-1 font-mono text-xs text-primary md:-right-2 md:-bottom-2 md:px-4 md:py-2 md:text-sm"
 							>
 								&lt;dev/&gt;
 							</div>
@@ -110,24 +112,26 @@
 					</div>
 
 					<!-- Code Block -->
-					<div class="transform transition-transform duration-300 hover:scale-[1.02]">
+					<div
+						class="hidden transform transition-transform duration-300 hover:scale-[1.02] md:block"
+					>
 						<CodeBlock code={codeSnippet} language="typescript" />
 					</div>
 
 					<!-- Floating Elements -->
 					<div
-						class="absolute -top-8 -right-8 h-16 w-16 animate-float rounded-xl border border-primary/30"
+						class="absolute -top-4 -right-4 h-12 w-12 animate-float rounded-xl border border-primary/30 md:-top-8 md:-right-8 md:h-16 md:w-16"
 						style="animation-delay: -2s"
 					></div>
 					<div
-						class="absolute -bottom-4 -left-4 h-8 w-8 animate-float rounded-lg bg-primary/20"
+						class="absolute -bottom-2 -left-2 h-6 w-6 animate-float rounded-lg bg-primary/20 md:-bottom-4 md:-left-4 md:h-8 md:w-8"
 						style="animation-delay: -4s"
 					></div>
 				</div>
 			</div>
 
 			<!-- Scroll Indicator -->
-			<div class="flex animate-fade-in flex-col items-center gap-2">
+			<div class="hidden animate-fade-in flex-col items-center gap-2 md:flex">
 				<span class="font-mono text-xs text-muted-foreground">scroll</span>
 				<div
 					class="flex h-8 w-5 justify-center rounded-full border border-muted-foreground/50 pt-1"

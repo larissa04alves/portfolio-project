@@ -76,7 +76,7 @@
 
 <section
 	id="projects"
-	class="relative flex w-full flex-col items-center justify-center gap-10 py-30"
+	class="relative flex w-full flex-col items-center justify-center gap-8 px-4 py-16 md:gap-10 md:py-30"
 	bind:this={projectsRef}
 >
 	<div
@@ -84,18 +84,18 @@
 		style:opacity={visible ? 1 : 0}
 		style:transform={`translateY(${visible ? '0' : '20px'})`}
 	>
-		<p class="font-mono text-sm tracking-wider text-primary">// meus projetos</p>
-		<h2 class="text-4xl font-bold text-foreground md:text-5xl">
+		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">// meus projetos</p>
+		<h2 class="text-3xl font-bold text-foreground md:text-5xl">
 			Trabalhos <span class="text-primary">recentes</span>
 		</h2>
-		<p class="mx-auto max-w-2xl text-muted-foreground">
+		<p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
 			Projetos que desenvolvi aplicando diferentes tecnologias e abordagens, cada um explorando
 			soluções práticas para necessidades reais.
 		</p>
 	</div>
 
 	<div
-		class="grid w-full max-w-6xl gap-8 md:auto-rows-fr md:grid-cols-2"
+		class="grid w-full max-w-6xl gap-6 md:auto-rows-fr md:grid-cols-2 md:gap-8"
 		style:opacity={visible ? 1 : 0}
 		style:transform={`translateY(${visible ? '0' : '20px'})`}
 		style:transition-delay={visible ? '0.05s' : '0s'}
@@ -116,8 +116,8 @@
 		variant="ghost"
 		href="https://github.com/larissa04alves"
 		target="_blank"
-		class="rounded-lg border border-border px-6 py-6 font-medium text-foreground
-                 transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary"
+		class="rounded-lg border border-border px-4 py-4 text-sm font-medium text-foreground
+                 transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary md:px-6 md:py-6 md:text-base"
 	>
 		<Github /> Ver mais no GitHub
 	</Button>

@@ -25,23 +25,23 @@
 
 <section
 	id="about"
-	class="relative flex w-full items-center justify-center py-32"
+	class="relative flex w-full flex-col items-center justify-center gap-6 px-4 py-8 md:flex-row md:gap-0 md:py-32"
 	bind:this={aboutRef}
 >
 	<div
-		class="flex w-1/3 flex-col gap-6 transition-all duration-700"
+		class="flex w-full flex-col gap-6 transition-all duration-700 md:w-1/3"
 		style="
       opacity: {visible ? 1 : 0};
       transform: translateY({visible ? '0' : '20px'});
     "
 	>
 		<div class="flex flex-col gap-4">
-			<h3 class="font-mono text-primary">// Sobre mim</h3>
-			<h1 class="flex flex-col font-mono text-4xl font-bold">
+			<h3 class="font-mono text-sm text-primary md:text-base">// Sobre mim</h3>
+			<h1 class="flex flex-col font-mono text-2xl font-bold md:text-4xl">
 				Transformando ideias <span class="text-primary">em aplicações eficientes</span>
 			</h1>
 		</div>
-		<div class="flex w-[85%] flex-col gap-6 text-muted-foreground">
+		<div class="flex w-full flex-col gap-6 text-sm text-muted-foreground md:w-[85%] md:text-base">
 			<p>
 				Sou <span class="font-semibold text-primary">desenvolvedora full-stack</span> trabalhando na
 				AltoQi, empresa de tecnologia para construção civil. <br /> Atuo com
@@ -63,14 +63,14 @@
 	</div>
 
 	<div
-		class="relative w-1/3 transition-all duration-700"
+		class="relative w-full transition-all duration-700 md:w-1/3"
 		style="
       opacity: {visible ? 1 : 0};
       transform: translateX({visible ? '0' : '30px'});
       transition-delay: 0.15s;
     "
 	>
-		<div class="relative overflow-hidden rounded-2xl border border-border bg-card p-8">
+		<div class="relative overflow-hidden rounded-2xl border border-border bg-card p-4 md:p-8">
 			<!-- Terminal Header -->
 			<div class="mb-6 flex items-center gap-2">
 				<div class="h-3 w-3 rounded-full bg-red-500"></div>

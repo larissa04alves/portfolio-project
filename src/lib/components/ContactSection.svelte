@@ -54,7 +54,7 @@
 
 <section
 	id="contact"
-	class="flex w-full flex-col items-center justify-center py-20"
+	class="flex w-full flex-col items-center justify-center px-4 py-16 md:py-20"
 	bind:this={contactRef}
 >
 	<!-- Título -->
@@ -62,38 +62,40 @@
 		class="mb-12 flex flex-col gap-4 text-center transition-all duration-700"
 		style="opacity: {visible ? 1 : 0}; transform: translateY({visible ? '0' : '20px'})"
 	>
-		<p class="font-mono text-sm tracking-wider text-primary">// vamos conversar</p>
-		<h2 class="text-4xl font-bold text-foreground md:text-5xl">
+		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">// vamos conversar</p>
+		<h2 class="text-3xl font-bold text-foreground md:text-5xl">
 			Entre em <span class="text-primary">contato</span>
 		</h2>
-		<p class="mx-auto max-w-2xl text-muted-foreground">
+		<p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
 			Tem um projeto em mente ou quer trocar uma ideia? Sinta-se à vontade para me enviar uma
 			mensagem.
 		</p>
 	</div>
 
 	<div
-		class="flex w-1/2 flex-col gap-8 transition-all duration-700"
+		class="flex w-full flex-col gap-8 transition-all duration-700 md:w-1/2"
 		style="opacity: {visible ? 1 : 0}; transform: translateY({visible
 			? '0'
 			: '20px'}); transition-delay: 0.1s"
 	>
-		<div class="grid grid-cols-2 gap-6">
+		<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6">
 			{#each contactLinks as link, index}
 				<a
 					href={link.href}
 					target="_blank"
 					rel="noopener noreferrer"
-					class="group flex items-center gap-4 rounded-xl border border-border bg-card
-                     p-4 transition-all duration-300 hover:border-primary/50"
+					class="group flex items-center gap-3 rounded-xl border border-border bg-card
+                     p-3 transition-all duration-300 hover:border-primary/50 md:gap-4 md:p-4"
 					style="opacity: {visible ? 1 : 0}; transform: translateY({visible
 						? '0'
 						: '20px'}); transition-delay: {visible ? `${0.15 + index * 0.07}s` : '0s'}"
 				>
-					<span class="text-2xl">{link.icon}</span>
+					<span class="text-xl md:text-2xl">{link.icon}</span>
 					<div>
-						<p class="text-sm text-muted-foreground">{link.label}</p>
-						<p class="text-foreground transition-colors group-hover:text-primary">
+						<p class="text-xs text-muted-foreground md:text-sm">{link.label}</p>
+						<p
+							class="text-sm text-foreground transition-colors group-hover:text-primary md:text-base"
+						>
 							{link.value}
 						</p>
 					</div>
@@ -106,16 +108,18 @@
 
 		<!-- Availability Card -->
 		<div
-			class="rounded-xl border border-primary/30 bg-card p-6 transition-all duration-700"
+			class="rounded-xl border border-primary/30 bg-card p-4 transition-all duration-700 md:p-6"
 			style="opacity: {visible ? 1 : 0}; transform: translateY({visible
 				? '0'
 				: '20px'}); transition-delay: 0.35s"
 		>
-			<div class="mb-4 flex items-center gap-3">
-				<div class="h-3 w-3 animate-pulse rounded-full bg-green-500"></div>
-				<span class="font-medium text-foreground">Disponível para novos projetos</span>
+			<div class="mb-3 flex items-center gap-2 md:mb-4 md:gap-3">
+				<div class="h-2 w-2 animate-pulse rounded-full bg-green-500 md:h-3 md:w-3"></div>
+				<span class="text-sm font-medium text-foreground md:text-base"
+					>Disponível para novos projetos</span
+				>
 			</div>
-			<p class="text-sm text-muted-foreground">
+			<p class="text-xs text-muted-foreground md:text-sm">
 				Atualmente aceito projetos freelance. Vamos conversar sobre o que você precisa.
 			</p>
 		</div>
