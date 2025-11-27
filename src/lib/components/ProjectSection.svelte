@@ -52,7 +52,10 @@
 	];
 </script>
 
-<section class="relative flex w-full flex-col items-center justify-center gap-10 py-30">
+<section
+	id="projects"
+	class="relative flex w-full flex-col items-center justify-center gap-10 py-30"
+>
 	<div class="flex w-full max-w-6xl flex-col items-center gap-2 pb-10 text-center">
 		<p class="font-mono text-sm tracking-wider text-primary transition-all duration-700">
 			// meus projetos

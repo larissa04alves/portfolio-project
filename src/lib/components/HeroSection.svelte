@@ -11,10 +11,10 @@
 	const codeSnippet = `const developer = {
   name: "Larissa Alves",
   role: "Fullstack Developer",
-  skills: ["React", "Svelte", "TypeScript"],
+  skills: ["React", "Svelte", "TypeScript", "Java", "Python"],
 
-  buildAmazingThings() {
-    return magic + creativity;
+  buildUsefulThings() {
+    return problems.map((p) => solve(p));
   }
 };`;
 </script>
@@ -47,20 +47,13 @@
 					<!-- Area botoes -->
 					<div class="flex gap-4">
 						<Button
+							href="#projects"
 							variant="ghost"
-							class="flex items-center gap-2 rounded-lg bg-primary px-6
+							class="flex items-center gap-2 rounded-lg bg-primary/90 px-6
                  py-6 font-medium text-primary-foreground
-                 hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30"
+                 hover:bg-primary hover:shadow-xl hover:shadow-primary/30"
 							>Ver projetos <ArrowRight /></Button
 						>
-
-						<Button
-							variant="ghost"
-							class="rounded-lg border border-border px-6 py-6 font-medium text-foreground
-                 transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary"
-						>
-							Fale comigo
-						</Button>
 					</div>
 					<!-- Area redes sociais -->
 					<div class="flex items-center">
@@ -111,7 +104,7 @@
 							<div
 								class="absolute -right-2 -bottom-2 animate-float rounded-full border border-primary bg-card px-4 py-2 font-mono text-sm text-primary"
 							>
-								&lt;coder/&gt;
+								&lt;dev/&gt;
 							</div>
 						</div>
 					</div>

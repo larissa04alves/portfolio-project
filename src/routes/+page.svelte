@@ -3,6 +3,7 @@
 	import AboutSection from '$lib/components/AboutSection.svelte';
 	import SkillSection from '$lib/components/SkillSection.svelte';
 	import ProjectSection from '$lib/components/ProjectSection.svelte';
+	import ContactSection from '$lib/components/ContactSection.svelte';
 </script>
 
 <section>
@@ -10,4 +11,5 @@
 	<AboutSection />
 	<SkillSection />
 	<ProjectSection />
+	<ContactSection />
 </section>

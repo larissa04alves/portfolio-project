@@ -1,5 +1,5 @@
-<section class="relative flex w-full items-center justify-center py-32">
-	<div class="flex w-1/3 animate-slide-up flex-col gap-6">
+<section id="about" class="relative flex w-full items-center justify-center py-32">
+	<div class="flex w-1/3 flex-col gap-6">
 		<div class="flex flex-col gap-4">
 			<h3 class="font-mono text-primary">// Sobre mim</h3>
 			<h1 class="flex flex-col font-mono text-4xl font-bold">
