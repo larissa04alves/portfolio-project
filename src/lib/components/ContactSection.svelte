@@ -38,7 +38,7 @@
 			(entries) => {
 				if (entries[0].isIntersecting) {
 					visible = true;
-					observer.disconnect(); // anima só uma vez
+					observer.disconnect();
 				}
 			},
 			{ threshold: 0.2 }
@@ -54,7 +54,7 @@
 
 <section
 	id="contact"
-	class="flex w-full flex-col items-center justify-center px-4 py-16 md:py-20"
+	class="flex w-full flex-col items-center justify-center px-4 py-16 md:py-24"
 	bind:this={contactRef}
 >
 	<!-- Título -->
