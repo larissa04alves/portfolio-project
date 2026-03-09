@@ -1,38 +1,62 @@
-# sv
+# 💼 Larissa Alves — Portfolio
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Portfólio pessoal desenvolvido com **SvelteKit**, **TypeScript** e **Tailwind CSS**, com suporte a internacionalização (PT-BR / EN) e deploy na Vercel.
 
-## Creating a project
+🌐 **Acesse:** [laridev.com](https://laridev.com)
 
-If you're seeing this, you've probably already done this step. Congrats!
+---
 
-```sh
-# create a new project in the current directory
-npx sv create
+## 🚀 Tecnologias
 
-# create a new project in my-app
-npx sv create my-app
+| Camada | Tecnologias |
+|--------|-------------|
+| 🧩 Framework | SvelteKit 2 + Svelte 5 |
+| 🔷 Linguagem | TypeScript |
+| 🎨 Estilização | Tailwind CSS v4 |
+| 🧱 Componentes | bits-ui, lucide-svelte |
+| 🌍 i18n | svelte-i18n (PT-BR / EN) |
+| ☁️ Deploy | Vercel |
+| ⚡ Runtime | Bun |
+
+---
+
+## 📄 Seções
+
+- 🏠 **Hero** — apresentação com foto, snippet de código e links sociais
+- 👩‍💻 **About** — bio com terminal interativo simulado
+- 🛠️ **Skills** — stack dividida em Frontend, Backend e DevOps & Tools
+- 📦 **Projects** — cards com projetos reais
+- 📬 **Contact** — link direto para WhatsApp e disponibilidade para freelance
+
+---
+
+## 🔧 Rodando localmente
+
+```bash
+bun install
+bun dev
 ```
 
-## Developing
+Acesse `http://localhost:5173`.
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## 📦 Build
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```bash
+bun run build
+bun run preview
 ```
 
-## Building
+## ✅ Lint e checagem de tipos
 
-To create a production version of your app:
-
-```sh
-npm run build
+```bash
+bun run check
+bun run lint
 ```
 
-You can preview the production build with `npm run preview`.
+---
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## 🔗 Links
+
+- 🌐 [laridev.com](https://laridev.com)
+- 🐙 [GitHub](https://github.com/larissa04alves)
+- 💼 [LinkedIn](https://www.linkedin.com/in/larissa-alvess/)
