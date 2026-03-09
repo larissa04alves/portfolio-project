@@ -23,7 +23,7 @@
 	value={currentLocale}
 	onValueChange={handleValueChange}
 	aria-label="Toggle language"
-	class="toggle-pill relative flex cursor-pointer items-center gap-0 rounded-full h-10 border border-primary/30 bg-card p-1 transition-all duration-300 hover:border-primary/60 hover:shadow-md hover:shadow-primary/20"
+	class="toggle-pill relative flex cursor-pointer items-center gap-0 rounded-full h-9 border border-primary/30 bg-card p-1 transition-all duration-300 hover:border-primary/60 hover:shadow-md hover:shadow-primary/20"
 >
 	<!-- Sliding indicator -->
 	<div
