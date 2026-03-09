@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
 	import BackgroundElements from '$lib/components/background/BackgroundElements.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { ArrowRight } from 'lucide-svelte';
@@ -25,10 +26,10 @@
 			<div
 				class="flex w-full flex-col-reverse items-center justify-center gap-8 md:flex-row md:gap-0"
 			>
-				<!-- Area texto principal -->
+				<!-- Main text area -->
 				<div class="flex w-full flex-col gap-4 md:w-1/2 md:gap-6">
 					<div class="flex flex-col gap-1">
-						<h3 class="font-mono text-sm md:text-base">👋 Olá eu sou</h3>
+						<h3 class="font-mono text-sm md:text-base">{$_('hero.greeting')}</h3>
 						<h1 class="flex flex-col text-4xl font-bold md:text-6xl">
 							Larissa <span class="text-primary">Alves</span>
 						</h1>
@@ -38,15 +39,11 @@
 						</div>
 					</div>
 
-					<p class="w-full text-sm md:w-[90%] md:text-base">
-						Desenvolvo aplicações modernas com foco em <span class="font-semibold text-primary"
-							>performance</span
-						>
-						e <span class="font-semibold text-primary">usabilidade</span>, oferecendo experiências
-						mais intuitivas e funcionais.
+					<p class="hero-description w-full text-sm md:w-[90%] md:text-base">
+						{@html $_('hero.description')}
 					</p>
 
-					<!-- Area botoes -->
+					<!-- Buttons area -->
 					<div class="flex gap-4">
 						<Button
 							href="#projects"
@@ -54,10 +51,10 @@
 							class="flex items-center gap-2 rounded-lg bg-primary/90 px-4
                  py-4 text-sm font-medium text-primary-foreground
                  hover:bg-primary hover:shadow-xl hover:shadow-primary/30 md:px-6 md:py-6 md:text-base"
-							>Ver projetos <ArrowRight class="h-4 w-4 md:h-6 md:w-6" /></Button
+							>{$_('hero.cta')} <ArrowRight class="h-4 w-4 md:h-6 md:w-6" /></Button
 						>
 					</div>
-					<!-- Area redes sociais -->
+					<!-- Social links area -->
 					<div class="flex items-center">
 						<div>
 							<Button
@@ -142,3 +139,10 @@
 		</div>
 	</BackgroundElements>
 </section>
+
+<style>
+	.hero-description :global(strong) {
+		font-weight: 600;
+		color: var(--color-primary);
+	}
+</style>

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import SkillBadge from './SkillBadge.svelte';
 
 	let visible = $state(false);
@@ -47,14 +48,14 @@
 	class="relative flex w-full flex-col items-center justify-center gap-8 px-4 py-16 md:gap-14 md:py-20"
 	bind:this={skillsRef}
 >
-	<!-- Título -->
+	<!-- Title -->
 	<div
 		class="flex flex-col gap-4 text-center transition-all duration-700"
 		style="opacity: {visible ? 1 : 0}; transform: translateY({visible ? '0' : '20px'})"
 	>
-		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">// minhas habilidades</p>
+		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">{$_('skills.tag')}</p>
 		<h2 class="text-3xl font-bold text-foreground md:text-5xl">
-			Stack <span class="text-primary">principal</span>
+			{$_('skills.headline')} <span class="text-primary">{$_('skills.headline_highlight')}</span>
 		</h2>
 	</div>
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 
 	let visible = $state(false);
 	let aboutRef = $state<HTMLElement | null>(null);
@@ -36,29 +37,14 @@
     "
 	>
 		<div class="flex flex-col gap-4">
-			<h3 class="font-mono text-sm text-primary md:text-base">// Sobre mim</h3>
+			<h3 class="font-mono text-sm text-primary md:text-base">{$_('about.tag')}</h3>
 			<h1 class="flex flex-col font-mono text-2xl font-bold md:text-4xl">
-				Transformando ideias <span class="text-primary">em aplicações eficientes</span>
+				{$_('about.headline')} <span class="text-primary">{$_('about.headline_highlight')}</span>
 			</h1>
 		</div>
-		<div class="flex w-full flex-col gap-6 text-sm text-muted-foreground md:w-[85%] md:text-base">
-			<p>
-				Sou <span class="font-semibold text-primary">desenvolvedora full-stack</span> trabalhando na
-				AltoQi, empresa de tecnologia para construção civil. <br /> Atuo com
-				<span class="font-semibold text-primary"> Node.js</span>,
-				<span class="font-semibold text-primary"> React</span>
-				e <span class="font-semibold text-primary"> Svelte</span>, integrando backend e frontend
-				para entregar aplicações funcionais e eficientes.
-			</p>
-			<p>
-				Atualmente curso <span class="font-semibold text-primary">Ciência da Computação</span> na
-				PUCPR e, também realizo freelancer de
-				<span class="font-semibold text-primary"> desenvolvimento de aplicações web</span>
-				completas.
-				<br />Já atuei com automação em Python, criação de dashboards em Power BI e backend com Java
-				e Spring Boot. Aprender e transformar ideias em código funcional continua sendo o que me
-				motiva.
-			</p>
+		<div class="about-text flex w-full flex-col gap-6 text-sm text-muted-foreground md:w-[85%] md:text-base">
+			<p>{@html $_('about.para1')}</p>
+			<p>{@html $_('about.para2')}</p>
 		</div>
 	</div>
 
@@ -76,22 +62,22 @@
 				<div class="h-3 w-3 rounded-full bg-red-500"></div>
 				<div class="h-3 w-3 rounded-full bg-yellow-500"></div>
 				<div class="h-3 w-3 rounded-full bg-green-500"></div>
-				<span class="ml-3 font-mono text-sm text-muted-foreground">~/sobre-mim</span>
+				<span class="ml-3 font-mono text-sm text-muted-foreground">{$_('about.terminal_path')}</span>
 			</div>
 
 			<!-- Terminal Content -->
 			<div class="space-y-3 font-mono text-sm">
-				<p><span class="text-primary">$</span> cat interesses.txt</p>
+				<p><span class="text-primary">$</span> {$_('about.terminal_cmd1')}</p>
 				<div class="space-y-1 pl-4 text-muted-foreground">
-					<p>→ Desenvolvimento Web Moderno</p>
-					<p>→ UI/UX Design</p>
-					<p>→ Performance &amp; Otimização</p>
-					<p>→ Arquitetura de Software</p>
-					<p>→ DevTools e Fluxos de Trabalho</p>
+					<p>{$_('about.terminal_interest1')}</p>
+					<p>{$_('about.terminal_interest2')}</p>
+					<p>{$_('about.terminal_interest3')}</p>
+					<p>{$_('about.terminal_interest4')}</p>
+					<p>{$_('about.terminal_interest5')}</p>
 				</div>
-				<p class="pt-4"><span class="text-primary">$</span> quem_sou_eu</p>
+				<p class="pt-4"><span class="text-primary">$</span> {$_('about.terminal_cmd2')}</p>
 				<p class="pl-4 text-muted-foreground">
-					Uma desenvolvedora que gosta de criar,<br /> aprender e entregar soluções que fazem sentido.
+					{$_('about.terminal_output')}
 				</p>
 				<p class="pt-4">
 					<span class="text-primary">$</span>
@@ -104,3 +90,10 @@
 		</div>
 	</div>
 </section>
+
+<style>
+	.about-text :global(strong) {
+		font-weight: 600;
+		color: var(--color-primary);
+	}
+</style>

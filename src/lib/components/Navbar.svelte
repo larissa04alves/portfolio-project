@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import { Button } from './ui/button';
+	import LocaleToggle from './LocaleToggle.svelte';
 
 	let scrolled = $state(false);
 	let activeSection = $state('');
@@ -43,7 +45,7 @@
 						? 'text-primary'
 						: 'hover:text-primary'}"
 				>
-					Sobre
+					{$_('nav.about')}
 				</a>
 			</li>
 			<li>
@@ -53,7 +55,7 @@
 						? 'text-primary'
 						: 'hover:text-primary'}"
 				>
-					Skills
+					{$_('nav.skills')}
 				</a>
 			</li>
 			<li>
@@ -63,7 +65,7 @@
 						? 'text-primary'
 						: 'hover:text-primary'}"
 				>
-					Projetos
+					{$_('nav.projects')}
 				</a>
 			</li>
 			<li>
@@ -73,16 +75,19 @@
 						? 'text-primary'
 						: 'hover:text-primary'}"
 				>
-					Contato
+					{$_('nav.contact')}
 				</a>
 			</li>
 		</ul>
+
+		<LocaleToggle />
+
 		<Button
 			variant="ghost"
 			class="rounded-md border border-primary font-medium text-foreground
            transition-all duration-300 hover:border-accent hover:bg-transparent hover:text-accent"
 		>
-			<a href="/larissa-alves-cv.pdf" target="_blank">Download CV</a>
+			<a href="/larissa-alves-cv.pdf" target="_blank">{$_('nav.download_cv')}</a>
 		</Button>
 	</div>
 </nav>

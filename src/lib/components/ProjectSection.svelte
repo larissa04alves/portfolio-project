@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import ProjectCard from './ProjectCard.svelte';
 	import TelaFluxoCaixa from '$lib/assets/images/tela-fluxo-caixa.png';
 	import TelaSilvaDiesel from '$lib/assets/images/tela-silva-diesel.png';
@@ -11,56 +12,49 @@
 	let visible = $state(false);
 	let projectsRef = $state<HTMLElement | null>(null);
 
-	const projects = [
+	const projectData = [
 		{
-			title: 'Fluxo Caixa',
-			description:
-				'Controle de fluxo de caixa, focado em pequenas empresas e autônomos que precisam acompanhar receitas, despesas e resultado financeiro diário/mensal de forma simples.',
+			id: 'fluxo_caixa',
 			tags: ['Next.js', 'TypeScript', 'Drizzle ORM', 'Tailwind CSS'],
 			image: TelaFluxoCaixa,
 			link: 'https://github.com/larissa04alves/fluxo-caixa-sistema/'
 		},
 		{
-			title: 'Site Silva Diesel',
-			description:
-				'Site oficial da Silva Diesel, oferecendo uma interface moderna e responsiva, destacando os serviços especializados e reparos de veículos pesados.',
+			id: 'silva_diesel',
 			tags: ['Svelte', 'Tailwind CSS', 'Vercel'],
 			image: TelaSilvaDiesel,
 			link: 'https://github.com/larissa04alves/Site-Silva-Diesel'
 		},
 		{
-			title: 'Controle de Estoque',
-			description:
-				'Sistema completo para gerenciar estoque de produtos, com funcionalidades de cadastro, atualização, remoção e monitoramento em tempo real.',
+			id: 'estoque',
 			tags: ['PHP', 'Xampp', 'PostgreSQL', 'Tailwind CSS'],
 			image: TelaControleEstoque,
 			link: 'https://github.com/larissa04alves/controle_estoque-php'
 		},
 		{
-			title: 'Salas interativas NLW',
-			description:
-				'Projeto desenvolvido durante o evento Next Level Week (NLW) da Rocketseat, focado em criar uma aplicação de salas interativas utilizando tecnologias modernas do ecossistema React.',
-			tags: [
-				'React',
-				'NodeJs',
-				'Fastify',
-				'Drizzle ORM',
-				'TanStack Query',
-				'TypeScript',
-				'Docker',
-				'GeminiAPI'
-			],
+			id: 'nlw',
+			tags: ['React', 'NodeJs', 'Fastify', 'Drizzle ORM', 'TanStack Query', 'TypeScript', 'Docker', 'GeminiAPI'],
 			image: TelaNLW,
 			link: 'https://github.com/larissa04alves/web'
 		}
 	];
+
+	const projects = $derived(
+		projectData.map((p) => ({
+			title: $_(`projects.${p.id}_title`),
+			description: $_(`projects.${p.id}`),
+			tags: p.tags,
+			image: p.image,
+			link: p.link
+		}))
+	);
 
 	onMount(() => {
 		const observer = new IntersectionObserver(
 			(entries) => {
 				if (entries[0].isIntersecting) {
 					visible = true;
-					observer.disconnect(); // anima só uma vez
+					observer.disconnect();
 				}
 			},
 			{ threshold: 0.2 }
@@ -84,13 +78,12 @@
 		style:opacity={visible ? 1 : 0}
 		style:transform={`translateY(${visible ? '0' : '20px'})`}
 	>
-		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">// meus projetos</p>
+		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">{$_('projects.tag')}</p>
 		<h2 class="text-3xl font-bold text-foreground md:text-5xl">
-			Trabalhos <span class="text-primary">recentes</span>
+			{$_('projects.headline')} <span class="text-primary">{$_('projects.headline_highlight')}</span>
 		</h2>
 		<p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-			Projetos que desenvolvi aplicando diferentes tecnologias e abordagens, cada um explorando
-			soluções práticas para necessidades reais.
+			{$_('projects.description')}
 		</p>
 	</div>
 
@@ -119,6 +112,6 @@
 		class="rounded-lg border border-border px-4 py-4 text-sm font-medium text-foreground
                  transition-all duration-300 hover:border-primary hover:bg-transparent hover:text-primary md:px-6 md:py-6 md:text-base"
 	>
-		<Github /> Ver mais no GitHub
+		<Github /> {$_('projects.cta_github')}
 	</Button>
 </section>

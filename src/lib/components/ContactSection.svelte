@@ -1,12 +1,20 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { ArrowRight } from 'lucide-svelte';
+	import { _ } from 'svelte-i18n';
 	import { Button } from './ui/button';
 
 	let visible = $state(false);
 	let contactRef: HTMLElement | null = $state(null);
 
-	const contactLinks = [
+	type ContactLink = {
+		label: string;
+		value: string;
+		href: string;
+		icon: string;
+	};
+
+	const contactLinks: ContactLink[] = [
 		{
 			label: 'Email',
 			value: 'alves04.larissa@gmail.com',
@@ -24,12 +32,6 @@
 			value: '@larissa04alves',
 			href: 'https://github.com/larissa04alves',
 			icon: '🐙'
-		},
-		{
-			label: 'WhatsApp',
-			value: 'Vamos conversar!',
-			href: 'https://wa.me/5555996913627?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20seu%20site!',
-			icon: '📱'
 		}
 	];
 
@@ -57,18 +59,17 @@
 	class="flex w-full flex-col items-center justify-center px-4 py-16 md:py-24"
 	bind:this={contactRef}
 >
-	<!-- Título -->
+	<!-- Title -->
 	<div
 		class="mb-12 flex flex-col gap-4 text-center transition-all duration-700"
 		style="opacity: {visible ? 1 : 0}; transform: translateY({visible ? '0' : '20px'})"
 	>
-		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">// vamos conversar</p>
+		<p class="font-mono text-xs tracking-wider text-primary md:text-sm">{$_('contact.tag')}</p>
 		<h2 class="text-3xl font-bold text-foreground md:text-5xl">
-			Entre em <span class="text-primary">contato</span>
+			{$_('contact.headline')} <span class="text-primary">{$_('contact.headline_highlight')}</span>
 		</h2>
 		<p class="mx-auto max-w-2xl text-sm text-muted-foreground md:text-base">
-			Tem um projeto em mente ou quer trocar uma ideia? Sinta-se à vontade para me enviar uma
-			mensagem.
+			{$_('contact.description')}
 		</p>
 	</div>
 
@@ -104,6 +105,29 @@
 					/>
 				</a>
 			{/each}
+
+			<!-- WhatsApp (translated value) -->
+			<a
+				href="https://wa.me/5555996913627?text=Ol%C3%A1%2C%20vim%20atrav%C3%A9s%20do%20seu%20site!"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="group flex items-center gap-3 rounded-xl border border-border bg-card
+                     p-3 transition-all duration-300 hover:border-primary/50 md:gap-4 md:p-4"
+				style="opacity: {visible ? 1 : 0}; transform: translateY({visible
+					? '0'
+					: '20px'}); transition-delay: {visible ? '0.36s' : '0s'}"
+			>
+				<span class="text-xl md:text-2xl">📱</span>
+				<div>
+					<p class="text-xs text-muted-foreground md:text-sm">WhatsApp</p>
+					<p class="text-sm text-foreground transition-colors group-hover:text-primary md:text-base">
+						{$_('contact.whatsapp')}
+					</p>
+				</div>
+				<ArrowRight
+					class="ml-auto h-5 w-5 text-muted-foreground transition-all group-hover:translate-x-1 group-hover:text-primary"
+				/>
+			</a>
 		</div>
 
 		<!-- Availability Card -->
@@ -111,16 +135,16 @@
 			class="rounded-xl border border-primary/30 bg-card p-4 transition-all duration-700 md:p-6"
 			style="opacity: {visible ? 1 : 0}; transform: translateY({visible
 				? '0'
-				: '20px'}); transition-delay: 0.35s"
+				: '20px'}); transition-delay: 0.45s"
 		>
 			<div class="mb-3 flex items-center gap-2 md:mb-4 md:gap-3">
 				<div class="h-2 w-2 animate-pulse rounded-full bg-green-500 md:h-3 md:w-3"></div>
 				<span class="text-sm font-medium text-foreground md:text-base"
-					>Disponível para novos projetos</span
+					>{$_('contact.available_title')}</span
 				>
 			</div>
 			<p class="text-xs text-muted-foreground md:text-sm">
-				Atualmente aceito projetos freelance. Vamos conversar sobre o que você precisa.
+				{$_('contact.available_description')}
 			</p>
 		</div>
 	</div>

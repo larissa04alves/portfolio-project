@@ -1,0 +1,67 @@
+{
+	"meta": {
+		"title": "Larissa Alves | Dev Fullstack",
+		"description": "Dev FullStack | Larissa - Desenvolvedora Fullstack especializada em criar aplicações web modernas e responsivas. Confira meus projetos e entre em contato."
+	},
+	"nav": {
+		"about": "Sobre",
+		"skills": "Skills",
+		"projects": "Projetos",
+		"contact": "Contato",
+		"download_cv": "Download CV"
+	},
+	"hero": {
+		"greeting": "👋 Olá eu sou",
+		"description": "Desenvolvo aplicações modernas com foco em <strong>performance</strong> e <strong>usabilidade</strong>, oferecendo experiências mais intuitivas e funcionais.",
+		"cta": "Ver projetos"
+	},
+	"about": {
+		"tag": "// Sobre mim",
+		"headline": "Transformando ideias",
+		"headline_highlight": "em aplicações eficientes",
+		"para1": "Sou <strong>desenvolvedora full-stack</strong> trabalhando na AltoQi, empresa de tecnologia para construção civil. Atuo com <strong>Node.js</strong>, <strong>React</strong> e <strong>Svelte</strong>, integrando backend e frontend para entregar aplicações funcionais e eficientes.",
+		"para2": "Atualmente curso <strong>Ciência da Computação</strong> na PUCPR e também realizo freelancer de <strong>desenvolvimento de aplicações web</strong> completas. Já atuei com automação em Python, criação de dashboards em Power BI e backend com Java e Spring Boot. Aprender e transformar ideias em código funcional continua sendo o que me motiva.",
+		"terminal_path": "~/sobre-mim",
+		"terminal_cmd1": "cat interesses.txt",
+		"terminal_interest1": "→ Desenvolvimento Web Moderno",
+		"terminal_interest2": "→ UI/UX Design",
+		"terminal_interest3": "→ Performance & Otimização",
+		"terminal_interest4": "→ Arquitetura de Software",
+		"terminal_interest5": "→ DevTools e Fluxos de Trabalho",
+		"terminal_cmd2": "quem_sou_eu",
+		"terminal_output": "Uma desenvolvedora que gosta de criar, aprender e entregar soluções que fazem sentido."
+	},
+	"skills": {
+		"tag": "// minhas habilidades",
+		"headline": "Stack",
+		"headline_highlight": "principal"
+	},
+	"projects": {
+		"tag": "// meus projetos",
+		"headline": "Trabalhos",
+		"headline_highlight": "recentes",
+		"description": "Projetos que desenvolvi aplicando diferentes tecnologias e abordagens, cada um explorando soluções práticas para necessidades reais.",
+		"cta_github": "Ver mais no GitHub",
+		"fluxo_caixa_title": "Fluxo Caixa",
+		"fluxo_caixa": "Controle de fluxo de caixa, focado em pequenas empresas e autônomos que precisam acompanhar receitas, despesas e resultado financeiro diário/mensal de forma simples.",
+		"silva_diesel_title": "Site Silva Diesel",
+		"silva_diesel": "Site oficial da Silva Diesel, oferecendo uma interface moderna e responsiva, destacando os serviços especializados e reparos de veículos pesados.",
+		"estoque_title": "Controle de Estoque",
+		"estoque": "Sistema completo para gerenciar estoque de produtos, com funcionalidades de cadastro, atualização, remoção e monitoramento em tempo real.",
+		"nlw_title": "Salas interativas NLW",
+		"nlw": "Projeto desenvolvido durante o evento Next Level Week (NLW) da Rocketseat, focado em criar uma aplicação de salas interativas utilizando tecnologias modernas do ecossistema React."
+	},
+	"contact": {
+		"tag": "// vamos conversar",
+		"headline": "Entre em",
+		"headline_highlight": "contato",
+		"description": "Tem um projeto em mente ou quer trocar uma ideia? Sinta-se à vontade para me enviar uma mensagem.",
+		"whatsapp": "Vamos conversar!",
+		"available_title": "Disponível para novos projetos",
+		"available_description": "Atualmente aceito projetos freelance. Vamos conversar sobre o que você precisa."
+	},
+	"footer": {
+		"made_with": "Feito com 💜 e muito código",
+		"rights": "Todos os direitos reservados."
+	}
+}

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import './layout.css';
+	import { _ } from 'svelte-i18n';
 	import Navbar from '$lib/components/Navbar.svelte';
 	import NavbarMobile from '$lib/components/NavbarMobile.svelte';
 	import Footer from '$lib/components/Footer.svelte';
@@ -8,11 +9,8 @@
 </script>
 
 <svelte:head>
-	<title>Larissa Alves | Dev Fullstack</title>
-	<meta
-		name="description"
-		content="Dev FullStack | Larissa  - Desenvolvedora Fullstack especializada em criar aplicações web modernas e responsivas. Confira meus projetos e entre em contato."
-	/>
+	<title>{$_('meta.title')}</title>
+	<meta name="description" content={$_('meta.description')} />
 	<link rel="preconnect" href="https://fonts.googleapis.com" />
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
 	<link

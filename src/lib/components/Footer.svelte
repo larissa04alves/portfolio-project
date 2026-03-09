@@ -1,4 +1,5 @@
-<script>
+<script lang="ts">
+	import { _ } from 'svelte-i18n';
 	import { Button } from './ui/button';
 	import GithubLogo from '$lib/assets/icons/github-logo.webp';
 	import LinkedinLogo from '$lib/assets/icons/linkedin-logo.webp';
@@ -11,14 +12,14 @@
 		<div class="flex flex-col items-center justify-between gap-3 md:flex-row md:gap-4">
 			<div class="flex items-center gap-2 text-center text-muted-foreground">
 				<span class="font-mono text-xs md:text-sm">
-					<span class="text-primary">&lt;</span>Feito com 💜 e muito código<span
+					<span class="text-primary">&lt;</span>{$_('footer.made_with')}<span
 						class="text-primary">/&gt;</span
 					>
 				</span>
 			</div>
 
 			<p class="text-center text-xs text-muted-foreground md:text-sm">
-				© {currentYear} Larissa Alves. Todos os direitos reservados.
+				© {currentYear} Larissa Alves. {$_('footer.rights')}
 			</p>
 
 			<div class="flex items-center">

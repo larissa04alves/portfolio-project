@@ -1,0 +1,67 @@
+{
+	"meta": {
+		"title": "Larissa Alves | Fullstack Dev",
+		"description": "Fullstack Dev | Larissa - Fullstack Developer specialized in building modern, responsive web applications. Check out my projects and get in touch."
+	},
+	"nav": {
+		"about": "About",
+		"skills": "Skills",
+		"projects": "Projects",
+		"contact": "Contact",
+		"download_cv": "Download CV"
+	},
+	"hero": {
+		"greeting": "👋 Hi, I'm",
+		"description": "I build modern applications focused on <strong>performance</strong> and <strong>usability</strong>, delivering more intuitive and functional experiences.",
+		"cta": "See projects"
+	},
+	"about": {
+		"tag": "// About me",
+		"headline": "Turning ideas into",
+		"headline_highlight": "efficient applications",
+		"para1": "I'm a <strong>full-stack developer</strong> at AltoQi, a software company in the construction industry. I work with <strong>Node.js</strong>, <strong>React</strong>, and <strong>Svelte</strong>, bridging backend and frontend to deliver functional, efficient applications.",
+		"para2": "I'm currently studying <strong>Computer Science</strong> at PUCPR, while also taking on freelance <strong>web development</strong> projects. My background includes Python automation, Power BI dashboards, and backend work with Java and Spring Boot. Learning and turning ideas into working code is what keeps me going.",
+		"terminal_path": "~/about-me",
+		"terminal_cmd1": "cat interests.txt",
+		"terminal_interest1": "→ Modern Web Development",
+		"terminal_interest2": "→ UI/UX Design",
+		"terminal_interest3": "→ Performance & Optimization",
+		"terminal_interest4": "→ Software Architecture",
+		"terminal_interest5": "→ DevTools & Workflows",
+		"terminal_cmd2": "who_am_i",
+		"terminal_output": "A developer who loves to build, learn, and ship things that actually make sense."
+	},
+	"skills": {
+		"tag": "// my skills",
+		"headline": "Core",
+		"headline_highlight": "stack"
+	},
+	"projects": {
+		"tag": "// my projects",
+		"headline": "Recent",
+		"headline_highlight": "work",
+		"description": "Projects I've built using different technologies and approaches, each one solving real-world problems in a practical way.",
+		"cta_github": "See more on GitHub",
+		"fluxo_caixa_title": "Cash Flow",
+		"fluxo_caixa": "A cash flow management tool built for small businesses and freelancers who need a simple way to track income, expenses, and daily/monthly results.",
+		"silva_diesel_title": "Silva Diesel Website",
+		"silva_diesel": "Official website for Silva Diesel, featuring a modern, responsive interface that highlights their specialized services and heavy vehicle repairs.",
+		"estoque_title": "Inventory Management",
+		"estoque": "A full-featured inventory system with product registration, updates, removal, and real-time monitoring.",
+		"nlw_title": "NLW Interactive Rooms",
+		"nlw": "Built during Rocketseat's Next Level Week (NLW) event — an interactive rooms app powered by modern tools from the React ecosystem."
+	},
+	"contact": {
+		"tag": "// let's talk",
+		"headline": "Get in",
+		"headline_highlight": "touch",
+		"description": "Got a project in mind or just want to chat? Feel free to reach out.",
+		"whatsapp": "Let's talk!",
+		"available_title": "Open to new projects",
+		"available_description": "Currently available for freelance work. Let's talk about what you need."
+	},
+	"footer": {
+		"made_with": "Made with 💜 and lots of code",
+		"rights": "All rights reserved."
+	}
+}

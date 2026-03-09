@@ -1,14 +1,16 @@
 <script lang="ts">
 	import { ArrowRight } from 'lucide-svelte';
-
-	const navItems = [
-		{ label: 'Sobre', href: '#about', icon: '01' },
-		{ label: 'Skills', href: '#skills', icon: '02' },
-		{ label: 'Projetos', href: '#projects', icon: '03' },
-		{ label: 'Contato', href: '#contact', icon: '04' }
-	];
+	import { _ } from 'svelte-i18n';
+	import LocaleToggle from './LocaleToggle.svelte';
 
 	let isOpen = $state(false);
+
+	const navItems = $derived([
+		{ label: $_('nav.about'), href: '#about', icon: '01' },
+		{ label: $_('nav.skills'), href: '#skills', icon: '02' },
+		{ label: $_('nav.projects'), href: '#projects', icon: '03' },
+		{ label: $_('nav.contact'), href: '#contact', icon: '04' }
+	]);
 
 	function toggleMenu() {
 		isOpen = !isOpen;
@@ -61,13 +63,13 @@
 	<div class="fixed inset-0 z-40 md:hidden" role="dialog" aria-modal="true">
 		<div class="absolute inset-0 animate-fade-in bg-background/98 backdrop-blur-lg"></div>
 
-		<!-- Grid de fundo decorativo -->
+		<!-- Decorative grid background -->
 		<div class="absolute inset-0 opacity-5">
 			<div
 				class="absolute inset-0"
 				style="
-					background-image: linear-gradient(var(--primary) 1px, transparent 1px),
-					linear-gradient(90deg, var(--primary) 1px, transparent 1px);
+					background-image: linear-gradient(var(--color-primary) 1px, transparent 1px),
+					linear-gradient(90deg, var(--color-primary) 1px, transparent 1px);
 					background-size: 50px 50px;
 				"
 			></div>
@@ -110,14 +112,19 @@
 						text-lg font-medium text-primary-foreground transition-all duration-300
 						hover:shadow-lg hover:shadow-primary/50"
 				>
-					<span>Download CV</span>
+					<span>{$_('nav.download_cv')}</span>
 					<ArrowRight class="size-5 " />
 				</a>
 			</div>
 
+			<!-- Language Switcher -->
+			<div class="mt-6 flex justify-center" style="animation: slide-in 0.3s ease-out 0.55s both;">
+				<LocaleToggle />
+			</div>
+
 			<!-- Social Links -->
 			<div
-				class="mt-12 flex justify-center gap-4"
+				class="mt-8 flex justify-center gap-4"
 				style="animation: slide-in 0.3s ease-out 0.6s both;"
 			>
 				<a
