@@ -10,19 +10,28 @@
 	onMount(() => {
 		const handleScroll = () => {
 			scrolled = window.scrollY > 50;
+
 			const sections = ['about', 'skills', 'projects', 'contact'];
+			const scrollPosition = window.scrollY + 150;
+
+			let currentSection = '';
+
 			for (const section of sections) {
 				const element = document.getElementById(section);
 				if (element) {
-					const rect = element.getBoundingClientRect();
-					if (rect.top <= 100 && rect.bottom >= 100) {
-						activeSection = section;
-						break;
+					const offsetTop = element.offsetTop;
+					if (scrollPosition >= offsetTop) {
+						currentSection = section;
 					}
 				}
 			}
+
+			activeSection = currentSection;
 		};
+
 		window.addEventListener('scroll', handleScroll);
+		handleScroll();
+
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
